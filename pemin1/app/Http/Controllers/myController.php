@@ -23,7 +23,6 @@ class myController extends Controller
 
     public function date(){
         $date = DB::table('time')->get();
-        // $date = app('db')->select("SELECT * FROM time");
         return json_encode($date);
     }
 }
