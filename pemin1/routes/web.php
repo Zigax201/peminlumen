@@ -1,6 +1,7 @@
 <?php
 
 /** @var \Laravel\Lumen\Routing\Router $router */
+
 use Illuminate\Support\Str;
 /*
 |--------------------------------------------------------------------------
@@ -17,10 +18,18 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->get('/key', function(){
+$router->get('/key', function () {
     return Str::random(32);
 });
 
 $router->get('/test', 'myController@index');
 
 $router->get('/date', 'myController@date');
+
+$router->get('/user/{id}', 'myController@getUser');
+
+$router->post('/user', 'myController@postUser');
+
+$router->put('/user/{id}', 'myController@putUser');
+
+$router->delete('/user/{id}', 'myController@deleteUser');
